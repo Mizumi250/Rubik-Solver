@@ -45,10 +45,12 @@ interface UseWebSocketResult {
 // Read from env — set NEXT_PUBLIC_REVERB_* in .env
 // ─────────────────────────────────────────────
 
-const REVERB_HOST   = process.env.NEXT_PUBLIC_REVERB_HOST   ?? 'localhost'
-const REVERB_PORT   = process.env.NEXT_PUBLIC_REVERB_PORT   ?? '8080'
-const REVERB_SCHEME = process.env.NEXT_PUBLIC_REVERB_SCHEME ?? 'ws'
-const APP_KEY       = process.env.NEXT_PUBLIC_REVERB_APP_KEY ?? 'arkzen'
+// Static export (--backend=none): there is no realtime server to connect to.
+const STATIC_NO_BACKEND = true
+const REVERB_HOST   = (import.meta as any).env.VITE_REVERB_HOST   ?? 'localhost'
+const REVERB_PORT   = (import.meta as any).env.VITE_REVERB_PORT   ?? '8080'
+const REVERB_SCHEME = (import.meta as any).env.VITE_REVERB_SCHEME ?? 'ws'
+const APP_KEY       = (import.meta as any).env.VITE_REVERB_APP_KEY ?? 'arkzen'
 
 // ─────────────────────────────────────────────
 // HOOK

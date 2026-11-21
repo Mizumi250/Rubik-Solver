@@ -51,9 +51,9 @@ export function useQuery<T = unknown>(
   const {
     ttl            = DEFAULT_TTL,
     enabled        = true,
-    retry          = 3,
+    retry          = 0,
     retryDelay     = 1000,
-    refetchOnFocus = true,
+    refetchOnFocus = false,
     params,
   } = options
 

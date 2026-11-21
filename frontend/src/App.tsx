@@ -6,19 +6,6 @@ import { Suspense } from 'react'
 import { Routes, Route } from 'react-router'
 import { ARKZEN_ROUTES, ARKZEN_ERROR_BOUNDARIES } from '@/arkzen/generated/routes'
 
-function LoadingScreen() {
-  return (
-    <div style={{
-      minHeight: '100vh', display: 'flex', alignItems: 'center',
-      justifyContent: 'center', background: '#f5f5f0',
-    }}>
-      <div style={{ fontSize: '13px', color: '#aaa', fontFamily: 'system-ui' }}>
-        Loading...
-      </div>
-    </div>
-  )
-}
-
 function NotFoundScreen() {
   return (
     <div style={{
@@ -34,7 +21,7 @@ function NotFoundScreen() {
 
 export default function App() {
   return (
-    <Suspense fallback={<LoadingScreen />}>
+    <Suspense fallback={null}>
       <Routes>
         {ARKZEN_ROUTES.map(route => {
           const Boundary = ARKZEN_ERROR_BOUNDARIES[route.tatemono]
